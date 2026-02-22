@@ -7,47 +7,36 @@ st.title("Detected: Plastic")
 class_names = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
 
 plastic_info = {
-    "#1 PET and #2 HDPE": {
-        "instruction": "Prioritize these! Recycle in curbside bins."
+    "Magnetic (steel, iron)": {
+        "instruction": "Separate from non-magnetic metals. Check with your local center before dropping off, or drop them off at scrap yards, which will usually pay by weight."
     },
-    "#3 PVC, #6 PS, and #7 Other": {
-        "instruction": "Usually these need a special facility to be recycled and won't be collected curbside; check local guidelines."
+    "Non-magnetic (aluminum, copper)": {
+        "instruction": "Labels can remain on, but make sure they are clean and dry. These can be recycled in curbside bins. Make sure aerosol cans are completely empty before disposing."
     },
-    "#4 LDPE and #5 PP": {
-        "instruction": "Recycle at drop-off locations. Call ahead to see if your center processes these, otherwise they may need to be thrown away."
+    "E-Waste": {
+        "instruction": "E-waste must be taken to certified recyclers. Do NOT throw in the trash or recycling bins. Some municipalities will also host collectione events."
     }
 }
-    # Display disposal instruction
+
 st.subheader("Disposal Instruction")
-plastic_image = Image.open("plastics.png")
-st.image(plastic_image, caption="Types of Plastics", width=900)
+plastic_image = Image.open("metal.png")
+st.image(plastic_image, caption="Source: Blue Earth County", width=700)
 st.subheader("Empty, clean, and dry your trash before disposing!")
 
 cols = st.columns(3)
 with cols[0]:
-    st.subheader("#1 PET and #2 HDPE")
-    st.write(plastic_info.get("#1 PET and #2 HDPE", {}).get('instruction', 'N/A'))
+    st.subheader("Magnetic (steel, iron)")
+    st.write(plastic_info.get("Magnetic (steel, iron)", {}).get('instruction', 'N/A'))
 with cols[1]:
-    st.subheader("#3 PVC, #6 PS, and #7 Other")
-    st.write(plastic_info.get("#3 PVC, #6 PS, and #7 Other", {}).get('instruction', 'N/A'))
+    st.subheader("Non-magnetic (aluminum, copper)")
+    st.write(plastic_info.get("Non-magnetic (aluminum, copper)", {}).get('instruction', 'N/A'))
 with cols[2]:
-    st.subheader("#4 LDPE and #5 PP")
-    st.write(plastic_info.get("#4 LDPE and #5 PP", {}).get('instruction', 'N/A'))
+    st.subheader("E-Waste")
+    st.write(plastic_info.get("E-Waste", {}).get('instruction', 'N/A'))
 
 st.subheader("Environmental Impacts")
-st.write("Plastic waste causes severe, long-lasting environmental damage by polluting oceans and landscapes, " \
-        "entangling or killing over 1,500 species through ingestion, and breaking down into toxic microplastics. " \
-        "It exacerbates climate change via greenhouse gas emissions during production, disposal, and incineration. " \
-        "Plastic rarely biodegrades, persisting for centuries.")
-st.write("Recycling plastic helps the environment by reducing waste in landfills and oceans, " \
-        "lowering greenhouse gas emissions by roughly 42 percent compared to virgin production, and conserving natural " \
-        "resources. It saves energy—often 75 percent  less is needed to create products from recycled materials—and prevents " \
-        "harmful chemicals from leaching into soil and water. ")
-
-
-# -------------------------
-# Selectbox to learn about other trash types
-# -------------------------
+st.write("Metal waste, when improperly disposed of, causes severe, long-lasting environmental damage by leaching toxic heavy metals (lead, mercury, cadmium) into soil and water, destroying ecosystems, and contaminating food chains. Because metals are non-biodegradable, they persist for centuries, creating dead zones, harming aquatic life, and requiring intensive mining for replacement materials.")
+st.write("Metal recycling offers significant environmental and economic benefits by conserving natural resources, saving energy, and reducing landfill waste. It reduces the need for mining raw materials, cuts greenhouse gas emissions by up to 95% for certain metals like aluminum, and supports manufacturing by providing reusable materials, which lowers production costs and boosts economic growth.")
 
 st.subheader("Learn About Other Trash Types")
 
