@@ -78,6 +78,6 @@ if image is not None:
         # Store results in session state
         st.session_state["prediction"] = label
         st.session_state["confidence"] = confidence
+        st.session_state["from_prediction"] = True
 
-        # Dynamically switch page
         st.switch_page(f"pages/{label}.py")
