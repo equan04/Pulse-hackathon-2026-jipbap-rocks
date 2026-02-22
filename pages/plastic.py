@@ -18,9 +18,9 @@ plastic_info = {
     }
 }
     # Display disposal instruction
-st.subheader("Disposal Instruction")
+st.subheader("Disposal Instructions")
 plastic_image = Image.open("plastics.png")
-st.image(plastic_image, caption="Types of Plastics", width=900)
+st.image(plastic_image, caption="Types of Plastics", width=700)
 st.subheader("Empty, clean, and dry your trash before disposing!")
 
 cols = st.columns(3)

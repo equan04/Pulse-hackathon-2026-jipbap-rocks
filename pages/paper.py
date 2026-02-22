@@ -6,21 +6,9 @@ st.title("Detected: Paper")
 
 class_names = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
 
-plastic_info = {
-    "#1 PET and #2 HDPE": {
-        "instruction": "Prioritize these! Recycle in curbside bins."
-    },
-    "#3 PVC, #6 PS, and #7 Other": {
-        "instruction": "Usually these need a special facility to be recycled and won't be collected curbside; check local guidelines."
-    },
-    "#4 LDPE and #5 PP": {
-        "instruction": "Recycle at drop-off locations. Call ahead to see if your center processes these, otherwise they may need to be thrown away."
-    }
-}
-    # Display disposal instruction
-st.subheader("Disposal Instruction")
-plastic_image = Image.open("plastics.png")
-st.image(plastic_image, caption="Types of Plastics", width=900)
+st.subheader("Disposal Instructions")
+plastic_image = Image.open("paper.png")
+st.image(plastic_image, caption="Types of Plastics", width=700)
 st.subheader("Empty, clean, and dry your trash before disposing!")
 
 cols = st.columns(3)
