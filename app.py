@@ -19,12 +19,12 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # -------------------------
 @st.cache_resource
 def load_model():
-    model = models.mobilenet_v3_small(pretrained=False)
+    model = models.mobilenet_v3_small(pretrained=True)  # <-- change this
 
-    # Replace final classifier layer
     model.classifier[3] = nn.Linear(model.classifier[3].in_features, 6)
 
     model.load_state_dict(torch.load("model.pth", map_location=device))
+
     model.to(device)
     model.eval()
     return model
@@ -37,10 +37,6 @@ model = load_model()
 val_transforms = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
-    transforms.Normalize(
-        mean=[0.485, 0.456, 0.406],
-        std=[0.229, 0.224, 0.225]
-    )
 ])
 
 class_names = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
