@@ -1,8 +1,8 @@
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title="Plastic")
-st.title("Detected: Plastic")
+st.set_page_config(page_title="Metal")
+st.title("Detected: Metal")
 
 class_names = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
 
