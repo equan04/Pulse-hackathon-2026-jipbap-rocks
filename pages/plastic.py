@@ -27,7 +27,11 @@ else:
     st.image(image, caption="Input Image", width=600)
 
     # Predict using dummy model
-    st.info(f"Confidence: {0.00}%")
+    if "confidence" in st.session_state:
+        confidence = st.session_state["confidence"]
+        st.write(f"Model Confidence: {confidence*100:.2f}%")
+    else:
+        st.warning("No prediction found. Please classify an image first.")
 
     # Display disposal instruction
     st.subheader("Disposal Instruction")
