@@ -6,31 +6,16 @@ st.title("Detected: Paper")
 
 class_names = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
 
+plastic_image = Image.open("paper.jpeg")
+st.image(plastic_image, caption="Source: Norfolk", width=700)
 st.subheader("Disposal Instructions")
-plastic_image = Image.open("paper.png")
-st.image(plastic_image, caption="Types of Plastics", width=700)
-st.subheader("Empty, clean, and dry your trash before disposing!")
-
-cols = st.columns(3)
-with cols[0]:
-    st.subheader("#1 PET and #2 HDPE")
-    st.write(plastic_info.get("#1 PET and #2 HDPE", {}).get('instruction', 'N/A'))
-with cols[1]:
-    st.subheader("#3 PVC, #6 PS, and #7 Other")
-    st.write(plastic_info.get("#3 PVC, #6 PS, and #7 Other", {}).get('instruction', 'N/A'))
-with cols[2]:
-    st.subheader("#4 LDPE and #5 PP")
-    st.write(plastic_info.get("#4 LDPE and #5 PP", {}).get('instruction', 'N/A'))
+st.write("1. Verify the type of paper your recycling center accepts. Some types of paper are coated with plastic, or are made differently (newspaper vs printer paper). Shredded paper also may or may not be accepted.")
+st.write("2. Keep the paper dry and clean. Wet or soiled paper must be thrown in the trash.")
+st.write("3. Depending on your local recycling program, you may recycle curbside or at a center.")
 
 st.subheader("Environmental Impacts")
-st.write("Plastic waste causes severe, long-lasting environmental damage by polluting oceans and landscapes, " \
-        "entangling or killing over 1,500 species through ingestion, and breaking down into toxic microplastics. " \
-        "It exacerbates climate change via greenhouse gas emissions during production, disposal, and incineration. " \
-        "Plastic rarely biodegrades, persisting for centuries.")
-st.write("Recycling plastic helps the environment by reducing waste in landfills and oceans, " \
-        "lowering greenhouse gas emissions by roughly 42 percent compared to virgin production, and conserving natural " \
-        "resources. It saves energy—often 75 percent  less is needed to create products from recycled materials—and prevents " \
-        "harmful chemicals from leaching into soil and water. ")
+st.write("Paper waste significantly impacts the environment, contributing to deforestation, accounting for roughly 26% of landfill waste, and producing methane, a potent greenhouse gas, as it decomposes. The paper industry is a major consumer of energy, water, and a driver of air and water pollution.")
+st.write("Paper recycling provides significant environmental and economic benefits by conserving natural resources, saving energy, and reducing pollution. Recycling one ton of paper saves approximately 17 trees, 7,000 gallons of water, and 3.3 cubic yards of landfill space. It also reduces greenhouse gas emissions, cuts water pollution by 35%, and lowers air pollution by 74–95% compared to virgin paper production")
 
 
 # -------------------------
