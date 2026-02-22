@@ -1,48 +1,59 @@
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title="Plastic")
-st.title("Detected: Plastic")
+st.set_page_config(page_title="Cardboard")
+st.title("Detected: Cardboard")
 
 class_names = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
 
-plastic_info = {
-    "#1 PET and #2 HDPE": {
-        "instruction": "Prioritize these! Recycle in curbside bins."
+cardboard_info = {
+    "Corrugated Cardboard (Standard Shipping Box Cardboard)": {
+        "instruction": "Highly recyclable! Remove packing tape/plastic, empty any Styrofoam, and flatten before recycling."
     },
-    "#3 PVC, #6 PS, and #7 Other": {
-        "instruction": "Usually these need a special facility to be recycled and won't be collected curbside; check local guidelines."
+    "Paperboard and Chipboard (Cereal Boxes, Shoe Boxes, etc)": {
+        "instruction": "These are recyclable and often accepted with mixed paper or cardboard."
     },
-    "#4 LDPE and #5 PP": {
-        "instruction": "Recycle at drop-off locations. Call ahead to see if your center processes these, otherwise they may need to be thrown away."
+    "Pizza Boxes": {
+        "instruction": "Only clean, dry, non-greasy parts are recyclable. Heavily soiled boxes are unrecyclable due to contamination from food residue."
+    },
+    "Wax-Coated Cardboard (Produce and Frozen Food Boxes)": {
+        "instruction": "DO NOT recycle. The wax does not dissolve in the pulping process so these cannot be recycled."
     }
 }
-    # Display disposal instruction
-st.subheader("Disposal Instruction")
-plastic_image = Image.open("plastics.png")
-st.image(plastic_image, caption="Types of Plastics", width=900)
-st.subheader("Empty, clean, and dry your trash before disposing!")
 
-cols = st.columns(3)
+# Display disposal instruction
+st.subheader("Disposal Instruction")
+cardboard_image = Image.open("cardboard.png")
+st.image(cardboard_image, caption="Recycling Cardboard", width=700)
+st.subheader("Flatten, clean, and dry your trash before disposing!")
+
+cols = st.columns(4)
 with cols[0]:
-    st.subheader("#1 PET and #2 HDPE")
-    st.write(plastic_info.get("#1 PET and #2 HDPE", {}).get('instruction', 'N/A'))
+    st.subheader("Corrugated Cardboard (Standard Shipping Box Cardboard)")
+    st.write(cardboard_info.get("Corrugated Cardboard (Standard Shipping Box Cardboard)", {}).get('instruction', 'N/A'))
 with cols[1]:
-    st.subheader("#3 PVC, #6 PS, and #7 Other")
-    st.write(plastic_info.get("#3 PVC, #6 PS, and #7 Other", {}).get('instruction', 'N/A'))
+    st.subheader("Paperboard and Chipboard (Cereal Boxes, Shoe Boxes, etc)")
+    st.write(cardboard_info.get("Paperboard and Chipboard (Cereal Boxes, Shoe Boxes, etc)", {}).get('instruction', 'N/A'))
 with cols[2]:
-    st.subheader("#4 LDPE and #5 PP")
-    st.write(plastic_info.get("#4 LDPE and #5 PP", {}).get('instruction', 'N/A'))
+    st.subheader("Pizza Boxes")
+    st.write(cardboard_info.get("Pizza Boxes", {}).get('instruction', 'N/A'))
+with cols[3]:
+    st.subheader("Wax-Coated Cardboard (Produce and Frozen Food Boxes)")
+    st.write(cardboard_info.get("Wax-Coated Cardboard (Produce and Frozen Food Boxes)", {}).get('instruction', 'N/A'))
 
 st.subheader("Environmental Impacts")
-st.write("Plastic waste causes severe, long-lasting environmental damage by polluting oceans and landscapes, " \
-        "entangling or killing over 1,500 species through ingestion, and breaking down into toxic microplastics. " \
-        "It exacerbates climate change via greenhouse gas emissions during production, disposal, and incineration. " \
-        "Plastic rarely biodegrades, persisting for centuries.")
-st.write("Recycling plastic helps the environment by reducing waste in landfills and oceans, " \
-        "lowering greenhouse gas emissions by roughly 42 percent compared to virgin production, and conserving natural " \
-        "resources. It saves energy—often 75 percent  less is needed to create products from recycled materials—and prevents " \
-        "harmful chemicals from leaching into soil and water. ")
+st.write("Cardboard has a reputation of being the eco-friendly option over plastic packaging. However, despite its " \
+        "biodegradability, decomposing cardboard produces methane, a greenhouse gas that is significantly more " \
+        "potent than carbon dioxie. Unrecycled cardboard also reduces space in landfills for other trash, " \
+        "contributing to the solid waste crisis.")
+st.write("Producing new cardboard increases deforestation; requires vast amounts of energy, water, and " \
+        "resources; and releases harmful chemicals like chlorine and dioxins into water sources as well as generating " \
+        "air pollution.")
+st.write("Recycling cardboard helps the environment by reducing waste in landfills and reducing the production of " \
+        "cardboard which saves energy and reduces pollution. It prevents the release of methane and can be recycled " \
+        "5-7 times.")
+
+
 
 
 # -------------------------
