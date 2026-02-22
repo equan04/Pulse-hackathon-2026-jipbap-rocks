@@ -1,48 +1,23 @@
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title="Plastic")
-st.title("Detected: Plastic")
+st.set_page_config(page_title="Glass")
+st.title("Detected: Glass")
 
 class_names = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
 
-plastic_info = {
-    "#1 PET and #2 HDPE": {
-        "instruction": "Prioritize these! Recycle in curbside bins."
-    },
-    "#3 PVC, #6 PS, and #7 Other": {
-        "instruction": "Usually these need a special facility to be recycled and won't be collected curbside; check local guidelines."
-    },
-    "#4 LDPE and #5 PP": {
-        "instruction": "Recycle at drop-off locations. Call ahead to see if your center processes these, otherwise they may need to be thrown away."
-    }
-}
     # Display disposal instruction
+plastic_image = Image.open("Glass.png")
+st.image(plastic_image, caption="Source: Blue Earth County", width=700)
 st.subheader("Disposal Instruction")
-plastic_image = Image.open("plastics.png")
-st.image(plastic_image, caption="Types of Plastics", width=900)
-st.subheader("Empty, clean, and dry your trash before disposing!")
-
-cols = st.columns(3)
-with cols[0]:
-    st.subheader("#1 PET and #2 HDPE")
-    st.write(plastic_info.get("#1 PET and #2 HDPE", {}).get('instruction', 'N/A'))
-with cols[1]:
-    st.subheader("#3 PVC, #6 PS, and #7 Other")
-    st.write(plastic_info.get("#3 PVC, #6 PS, and #7 Other", {}).get('instruction', 'N/A'))
-with cols[2]:
-    st.subheader("#4 LDPE and #5 PP")
-    st.write(plastic_info.get("#4 LDPE and #5 PP", {}).get('instruction', 'N/A'))
+st.write("1. Clean and rinse glass bottles, and make sure they are fully dry before recycling. Make sure to remove lids.")
+st.write("2. Don't include non-container glass such as Pyrex, window panes, light bulbs, etc. ")
+st.write("3. Glass may be recycled curbside, but to prevent breakage in transportation, try to drop off at a collection center whenever possible.")
+st.write("Note: Broken glass should not be put in curbside bins! Check local guidelines, but it usually must be thrown away with regular trash.")
 
 st.subheader("Environmental Impacts")
-st.write("Plastic waste causes severe, long-lasting environmental damage by polluting oceans and landscapes, " \
-        "entangling or killing over 1,500 species through ingestion, and breaking down into toxic microplastics. " \
-        "It exacerbates climate change via greenhouse gas emissions during production, disposal, and incineration. " \
-        "Plastic rarely biodegrades, persisting for centuries.")
-st.write("Recycling plastic helps the environment by reducing waste in landfills and oceans, " \
-        "lowering greenhouse gas emissions by roughly 42 percent compared to virgin production, and conserving natural " \
-        "resources. It saves energy—often 75 percent  less is needed to create products from recycled materials—and prevents " \
-        "harmful chemicals from leaching into soil and water. ")
+st.write("Glass waste poses significant environmental risks due to its non-biodegradable nature, taking centuries to decompose in landfills, and its heavy, non-combustible characteristics. While 100% recyclable, poor recycling rates (roughly 21% globally) lead to millions of tons of waste ending up in landfills, contributing to greenhouse gases and occupying space.")
+st.write("Recycling glass provides significant environmental and economic benefits, primarily it can be reused endlessly without loss in quality. It reduces raw material consumption (saving sand, soda ash, and limestone), lowers energy usage by 40% due to lower melting temperatures, and reduces carbon emissions by roughly one ton for every five tons of glass recycled.")
 
 
 # -------------------------

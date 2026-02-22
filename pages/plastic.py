@@ -20,7 +20,7 @@ plastic_info = {
     # Display disposal instruction
 st.subheader("Disposal Instructions")
 plastic_image = Image.open("plastics.png")
-st.image(plastic_image, caption="Types of Plastics", width=700)
+st.image(plastic_image, caption="Types of Plastics. Source: Virgin Valley Disposal", width=700)
 st.subheader("Empty, clean, and dry your trash before disposing!")
 
 cols = st.columns(3)
@@ -40,8 +40,8 @@ st.write("Plastic waste causes severe, long-lasting environmental damage by poll
         "It exacerbates climate change via greenhouse gas emissions during production, disposal, and incineration. " \
         "Plastic rarely biodegrades, persisting for centuries.")
 st.write("Recycling plastic helps the environment by reducing waste in landfills and oceans, " \
-        "lowering greenhouse gas emissions by roughly 42 percent compared to virgin production, and conserving natural " \
-        "resources. It saves energy—often 75 percent  less is needed to create products from recycled materials—and prevents " \
+        "lowering greenhouse gas emissions by roughly 42% compared to virgin production, and conserving natural " \
+        "resources. It saves energy—often 75%  less is needed to create products from recycled materials—and prevents " \
         "harmful chemicals from leaching into soil and water. ")
 
 
