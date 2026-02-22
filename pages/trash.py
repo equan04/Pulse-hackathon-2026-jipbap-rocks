@@ -1,48 +1,59 @@
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title="Plastic")
-st.title("Detected: Plastic")
+st.set_page_config(page_title="Trash")
+st.title("Detected: Trash")
 
 class_names = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
 
-plastic_info = {
-    "#1 PET and #2 HDPE": {
-        "instruction": "Prioritize these! Recycle in curbside bins."
+trash_info = {
+    "Non-Recyclable": {
+        "instruction": "Non-recyclable materials like plastic bags/wrappers, Styrofoam, soiled paper, diapers, pet waste, clothing, dirty items such as napkins, and tissue papers, and other small items such as plastic utensils should be thrown away."
     },
-    "#3 PVC, #6 PS, and #7 Other": {
-        "instruction": "Usually these need a special facility to be recycled and won't be collected curbside; check local guidelines."
+    "Hazardous Materials and Electronics & Batteries": {
+        "instruction": "DO NOT throw away. Hazardous materials such as paint, household cleaner, and aerosol cans should go to hazardous waste facilities. Electronics and batteries can cause fires. Make sure to take them to special drop-off locations in your area."
     },
-    "#4 LDPE and #5 PP": {
-        "instruction": "Recycle at drop-off locations. Call ahead to see if your center processes these, otherwise they may need to be thrown away."
+    "Compostable Waste": {
+        "instruction": "Compostable foods include fruit, vegetable scraps, coffee grounds (and paper coffee filters), non-plastic tea bags, and eggshells are compostable. Small amounts of bread, pasta, grains, and dairy products can be composted as well."
+    },
+    "Liquid Waste": {
+        "instruction": "Non-hazardous liquid waste such as household sewage, sink, and laundry liquids should go down the drain. Hazardhous liquids such as oils and pesticides must go to household hazardous waste collection centers."
     }
 }
-    # Display disposal instruction
-st.subheader("Disposal Instruction")
-plastic_image = Image.open("plastics.png")
-st.image(plastic_image, caption="Types of Plastics", width=900)
-st.subheader("Empty, clean, and dry your trash before disposing!")
 
-cols = st.columns(3)
+
+# Display disposal instruction
+st.subheader("Disposal Instruction")
+trash_image = Image.open("trash.png")
+st.image(trash_image, caption="Types of Trash", width=700)
+st.subheader("Make sure to dispose of your trash at the right location!")
+
+cols = st.columns(4)
 with cols[0]:
-    st.subheader("#1 PET and #2 HDPE")
-    st.write(plastic_info.get("#1 PET and #2 HDPE", {}).get('instruction', 'N/A'))
+    st.subheader("Non-Recyclable")
+    st.write(trash_info.get("Non-Recyclable", {}).get('instruction', 'N/A'))
 with cols[1]:
-    st.subheader("#3 PVC, #6 PS, and #7 Other")
-    st.write(plastic_info.get("#3 PVC, #6 PS, and #7 Other", {}).get('instruction', 'N/A'))
+    st.subheader("Hazardous Materials and Electronics & Batteries")
+    st.write(trash_info.get("Hazardous Materials and Electronics & Batteries", {}).get('instruction', 'N/A'))
 with cols[2]:
-    st.subheader("#4 LDPE and #5 PP")
-    st.write(plastic_info.get("#4 LDPE and #5 PP", {}).get('instruction', 'N/A'))
+    st.subheader("Compostable Waste")
+    st.write(trash_info.get("Compostable Waste", {}).get('instruction', 'N/A'))
+with cols[3]:
+    st.subheader("Liquid Waste")
+    st.write(trash_info.get("Liquid Waste", {}).get('instruction', 'N/A'))
 
 st.subheader("Environmental Impacts")
-st.write("Plastic waste causes severe, long-lasting environmental damage by polluting oceans and landscapes, " \
-        "entangling or killing over 1,500 species through ingestion, and breaking down into toxic microplastics. " \
-        "It exacerbates climate change via greenhouse gas emissions during production, disposal, and incineration. " \
-        "Plastic rarely biodegrades, persisting for centuries.")
-st.write("Recycling plastic helps the environment by reducing waste in landfills and oceans, " \
-        "lowering greenhouse gas emissions by roughly 42 percent compared to virgin production, and conserving natural " \
-        "resources. It saves energy—often 75 percent  less is needed to create products from recycled materials—and prevents " \
-        "harmful chemicals from leaching into soil and water. ")
+st.write("Landfills produce methane, a greenhouse gas that is significantly more potent than carbon dioxide. Make sure to " \
+        "recycle where possible before throwing trash away. Certain foods can be composted as well, which reduces methane " \
+        "emissions, enriches soil health, and conserves water.")
+st.write("Improperly disposed of hazardous waste causes severe environmental damage by contaminating soil and groundwater, " \
+        "harming wildlife, and polluting the air. Throwing batteries and chemcicals into regular trash can also cause landfill " \
+        "fires, toxic runoff, and long-term ecosystem destruction. Be sure to properly dispose of hazardous materials at " \
+        "special dropoff locations. Check your area to see local dropoff locations.")
+st.write("Recycling is important, but it is also important to not mis-sort waste by throwing non-recyclable trash into the " \
+        "recycling. Mis-sorted waste can damage recycling systems equipment and render entire batches unrecyclable. This " \
+        "leads to higher landfill volumes, environmental pollution, and health risks. Recycling properly decreases the time " \
+        "spent at waste management facilities to go through mis-sorted waste and streamlines waste management.")
 
 
 # -------------------------

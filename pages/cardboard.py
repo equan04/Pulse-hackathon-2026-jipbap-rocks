@@ -44,7 +44,7 @@ with cols[3]:
 st.subheader("Environmental Impacts")
 st.write("Cardboard has a reputation of being the eco-friendly option over plastic packaging. However, despite its " \
         "biodegradability, decomposing cardboard produces methane, a greenhouse gas that is significantly more " \
-        "potent than carbon dioxie. Unrecycled cardboard also reduces space in landfills for other trash, " \
+        "potent than carbon dioxide. Unrecycled cardboard also reduces space in landfills for other trash, " \
         "contributing to the solid waste crisis.")
 st.write("Producing new cardboard increases deforestation; requires vast amounts of energy, water, and " \
         "resources; and releases harmful chemicals like chlorine and dioxins into water sources as well as generating " \
