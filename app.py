@@ -9,6 +9,16 @@ st.set_page_config(page_title="AI Waste Classifier")
 st.title("♻ AI Waste Classification")
 st.write("Upload an image or take a picture to classify waste.")
 
+if st.button("View My Recycling Dashboard"):
+    st.switch_page("pages/dashboard.py")
+
+# initialize user stats 
+if "total_items" not in st.session_state:
+    st.session_state.total_items = 42  
+    st.session_state.recycled_items = 31
+    st.session_state.co2_saved = 8.4  # kg
+    st.session_state.energy_saved = 52.0  # kWh
+
 # -------------------------
 # Device
 # -------------------------
@@ -75,9 +85,21 @@ if image is not None:
 
         label, confidence = predict_image(image)
 
+        st.session_state.total_items += 1
+
+        if label != "trash":
+            st.session_state.recycled_items += 1
+
+            # estimated impact per recycled item based on averages 
+            st.session_state.co2_saved += 0.2   # kg CO2 per item
+            st.session_state.energy_saved += 1.5  # kWh per item
+
         # Store results in session state
         st.session_state["prediction"] = label
         st.session_state["confidence"] = confidence
         st.session_state["from_prediction"] = True
 
         st.switch_page(f"pages/{label}.py")
+
+
+    
